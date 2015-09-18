@@ -1,0 +1,32 @@
+---
+
+# Vagrant
+provider: virtualbox
+ip: 192.168.13.37
+memory: 2048
+cpus: 2
+aliases: ~/.bash_aliases
+
+# SSH keys
+ssh:
+  - ~/.ssh/id_rsa
+
+# Environment variables
+vars:
+  - key: APP_ENV
+    value: local
+
+# Folders
+folders:
+    - sync: ~/Projects/example
+      to: /home/vagrant/example
+
+# Hostnames
+sites:
+    - point: example.local
+      to: /home/vagrant/example/public
+
+# Databases
+databases:
+    - name: example
+      type: mysql
